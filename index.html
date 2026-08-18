@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tanvin Ahmed — UI/UX & Product Designer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700;800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- Boot sequence overlay -->
+<div id="boot-screen">
+  <div id="boot-text"></div>
+</div>
+
+<!-- Ambient matrix rain canvas -->
+<canvas id="rain"></canvas>
+
+<div id="grid-overlay"></div>
+
+<!-- ===== NAV ===== -->
+<header class="nav">
+  <div class="nav-inner">
+    <a href="#top" class="nav-brand">
+      <span class="dot"></span> tanvin<span class="accent">@</span>portfolio<span class="accent">:~$</span>
+    </a>
+    <nav class="nav-tabs">
+      <a href="#about" class="tab" data-tab="about">About</a>
+      <a href="#work" class="tab" data-tab="work">Work</a>
+      <a href="#skills" class="tab" data-tab="skills">Skills</a>
+      <a href="#process" class="tab" data-tab="process">Process</a>
+      <a href="#contact" class="tab" data-tab="contact">Contact</a>
+    </nav>
+    <div class="nav-right">
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle light/dark mode" title="Toggle light/dark mode">
+        <span class="theme-icon">☀</span>
+      </button>
+      <button class="menu-btn" id="menuBtn" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- ===== HERO ===== -->
+  <section class="hero">
+    <div class="window hero-window">
+      <div class="window-bar">
+        <span class="wdot red"></span><span class="wdot yellow"></span><span class="wdot green"></span>
+        <span class="window-title">tanvin — zsh — 120×32</span>
+      </div>
+      <div class="window-body hero-body">
+        <p class="line ready"><span class="prompt">tanvin@portfolio</span><span class="path">~</span><span class="dollar">$</span> whoami</p>
+        <h1 class="typed-name" id="typedName"></h1>
+        <p class="line" id="typedRole"><span class="cursor-inline">▍</span></p>
+        <p class="hero-tagline">
+          Designing interfaces that feel inevitable — clear systems, confident motion,
+          and pixels that earn their place. Currently open to
+          <span class="highlight">[ product design / UI systems ]</span> work.
+        </p>
+        <div class="hero-actions">
+          <a href="#work" class="btn btn-primary">View Work</a>
+          <a href="#contact" class="btn btn-ghost">Say Hello</a>
+        </div>
+      </div>
+    </div>
+    <div class="scroll-hint">scroll <span>↓</span></div>
+  </section>
+
+  <!-- ===== ABOUT ===== -->
+  <section id="about" class="section">
+    <div class="section-label"><span class="bracket">[</span> About <span class="bracket">]</span></div>
+    <div class="window">
+      <div class="window-bar">
+        <span class="wdot red"></span><span class="wdot yellow"></span><span class="wdot green"></span>
+        <span class="window-title">About</span>
+      </div>
+      <div class="window-body about-grid">
+        <div class="about-copy">
+          <p>
+            I'm <strong>Tanvin Ahmed</strong>, a UI/UX &amp; product designer who treats
+            interfaces like systems — every screen a node, every flow a path worth mapping.
+            <span class="edit-flag">[Add a line or two here about what you specialize in / your design philosophy.]</span>
+          </p>
+          <p>
+            My process leans research-first and detail-obsessed: wireframes before pixels,
+            components before screens, and a design system that scales past the first release.
+          </p>
+
+          <h3 class="edu-heading">education.log</h3>
+          <ul class="about-facts">
+            <li><span class="k">degree</span><span class="v">MSc, Software Engineering</span></li>
+            <li><span class="k">university</span><span class="v">Daffodil International University</span></li>
+            <li><span class="k">degree</span><span class="v">BSc, Computer Science &amp; Engineering</span></li>
+            <li><span class="k">university</span><span class="v">Green University</span></li>
+          </ul>
+
+          <ul class="about-facts" style="margin-top:18px;">
+            <li><span class="k">role</span><span class="v">Product / UI-UX Designer</span></li>
+            <li><span class="k">based_in</span><span class="v">[Your City, Country]</span></li>
+            <li><span class="k">experience</span><span class="v">[X] years</span></li>
+            <li><span class="k">tools</span><span class="v">Figma · Framer · Webflow</span></li>
+            <li><span class="k">status</span><span class="v"><span class="pulse-dot"></span> available for work</span></li>
+          </ul>
+        </div>
+        <div class="about-visual" id="aboutVisual" aria-hidden="true">
+          <div class="orbit-ring r1"></div>
+          <div class="orbit-ring r2"></div>
+          <div class="orbit-ring r3"></div>
+          <div class="orbit-core">UX</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== WORK ===== -->
+  <section id="work" class="section">
+    <div class="section-label"><span class="bracket">[</span> ls ~/work <span class="bracket">]</span></div>
+    <p class="section-sub">Select a directory to expand the case study.</p>
+
+    <!--
+      ADD YOUR PROJECTS HERE:
+      Each project is one <article class="project-card"> block below.
+      To add a new project, copy one whole <article>...</article> block,
+      paste it before the closing </div> of .project-list, then edit:
+        - project-name text (e.g. "05_your-project/")
+        - project-tags text
+        - project-media inline style colors (--from / --to)
+        - <h3> title, the <p> description, the .chips tags
+        - the "view case study" link's href
+    -->
+    <div class="project-list">
+
+      <article class="project-card" tabindex="0">
+        <div class="project-head">
+          <span class="folder-icon">▸</span>
+          <span class="project-name">01_fintech-dashboard/</span>
+          <span class="project-tags">UX Research · Data Viz</span>
+        </div>
+        <div class="project-body">
+          <div class="project-media" style="--from:#0d3320; --to:#0a2216;"></div>
+          <div class="project-details">
+            <h3>[Project Title]</h3>
+            <p>[One or two sentences on the problem, your role, and the outcome. Example: Redesigned a fintech dashboard used by 40K+ traders, cutting time-to-insight by 32%.]</p>
+            <div class="chips"><span>Figma</span><span>Design System</span><span>User Testing</span></div>
+            <a href="#" class="link-arrow">view case study →</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="project-card" tabindex="0">
+        <div class="project-head">
+          <span class="folder-icon">▸</span>
+          <span class="project-name">02_mobile-commerce-app/</span>
+          <span class="project-tags">Mobile · Prototyping</span>
+        </div>
+        <div class="project-body">
+          <div class="project-media" style="--from:#0f2e2a; --to:#08201d;"></div>
+          <div class="project-details">
+            <h3>[Project Title]</h3>
+            <p>[Describe the app, the design challenge, and measurable impact — conversion lift, retention, App Store rating, etc.]</p>
+            <div class="chips"><span>iOS / Android</span><span>Motion</span><span>A/B Testing</span></div>
+            <a href="#" class="link-arrow">view case study →</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="project-card" tabindex="0">
+        <div class="project-head">
+          <span class="folder-icon">▸</span>
+          <span class="project-name">03_design-system/</span>
+          <span class="project-tags">Systems · Documentation</span>
+        </div>
+        <div class="project-body">
+          <div class="project-media" style="--from:#132e14; --to:#0a1f0d;"></div>
+          <div class="project-details">
+            <h3>[Project Title]</h3>
+            <p>[Talk about the design system you built or scaled — component count, adoption across teams, contribution model.]</p>
+            <div class="chips"><span>Tokens</span><span>Figma Variants</span><span>Storybook</span></div>
+            <a href="#" class="link-arrow">view case study →</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="project-card" tabindex="0">
+        <div class="project-head">
+          <span class="folder-icon">▸</span>
+          <span class="project-name">04_brand-identity/</span>
+          <span class="project-tags">Branding · Art Direction</span>
+        </div>
+        <div class="project-body">
+          <div class="project-media" style="--from:#0e2b22; --to:#081f19;"></div>
+          <div class="project-details">
+            <h3>[Project Title]</h3>
+            <p>[Describe a branding or visual identity project — logo system, color, type, and where it now lives.]</p>
+            <div class="chips"><span>Identity</span><span>Illustration</span><span>Guidelines</span></div>
+            <a href="#" class="link-arrow">view case study →</a>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- ===== SKILLS ===== -->
+  <section id="skills" class="section">
+    <div class="section-label"><span class="bracket">[</span> Skills <span class="bracket">]</span></div>
+    <div class="window">
+      <div class="window-bar">
+        <span class="wdot red"></span><span class="wdot yellow"></span><span class="wdot green"></span>
+        <span class="window-title">system monitor — proficiency</span>
+      </div>
+      <div class="window-body">
+        <div class="skills-grid">
+          <div class="skill-bar" data-level="95">
+            <div class="skill-top"><span>UI Design</span><span class="pct">95%</span></div>
+            <div class="bar-track"><div class="bar-fill"></div></div>
+          </div>
+          <div class="skill-bar" data-level="90">
+            <div class="skill-top"><span>UX Research</span><span class="pct">90%</span></div>
+            <div class="bar-track"><div class="bar-fill"></div></div>
+          </div>
+          <div class="skill-bar" data-level="88">
+            <div class="skill-top"><span>Prototyping</span><span class="pct">88%</span></div>
+            <div class="bar-track"><div class="bar-fill"></div></div>
+          </div>
+          <div class="skill-bar" data-level="85">
+            <div class="skill-top"><span>Design Systems</span><span class="pct">85%</span></div>
+            <div class="bar-track"><div class="bar-fill"></div></div>
+          </div>
+          <div class="skill-bar" data-level="80">
+            <div class="skill-top"><span>Motion / Interaction</span><span class="pct">80%</span></div>
+            <div class="bar-track"><div class="bar-fill"></div></div>
+          </div>
+          <div class="skill-bar" data-level="75">
+            <div class="skill-top"><span>Front-End (HTML/CSS)</span><span class="pct">75%</span></div>
+            <div class="bar-track"><div class="bar-fill"></div></div>
+          </div>
+        </div>
+        <p class="edit-flag centered">[Adjust these skills & percentages to match your real proficiency.]</p>
+
+        <div class="tool-row">
+          <span class="tool-chip">Figma</span>
+          <span class="tool-chip">Framer</span>
+          <span class="tool-chip">Adobe XD</span>
+          <span class="tool-chip">Webflow</span>
+          <span class="tool-chip">Illustrator</span>
+          <span class="tool-chip">Photoshop</span>
+          <span class="tool-chip">Notion</span>
+          <span class="tool-chip">Maze</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PROCESS ===== -->
+  <section id="process" class="section">
+    <div class="section-label"><span class="bracket">[</span> Process <span class="bracket">]</span></div>
+    <div class="pipeline">
+      <div class="pipeline-step">
+        <div class="step-head"><span class="step-tag">discover</span></div>
+        <p>Stakeholder interviews, competitive audits, and user research to define the real problem before touching pixels.</p>
+      </div>
+      <div class="pipeline-connector"></div>
+      <div class="pipeline-step">
+        <div class="step-head"><span class="step-tag">define</span></div>
+        <p>Information architecture, user flows, and low-fidelity wireframes to lock the structure.</p>
+      </div>
+      <div class="pipeline-connector"></div>
+      <div class="pipeline-step">
+        <div class="step-head"><span class="step-tag">design</span></div>
+        <p>High-fidelity UI, componentized in a design system, tested against accessibility and edge cases.</p>
+      </div>
+      <div class="pipeline-connector"></div>
+      <div class="pipeline-step">
+        <div class="step-head"><span class="step-tag">ship &amp; learn</span></div>
+        <p>Prototype, usability test, hand off to engineering, then measure and iterate post-launch.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CONTACT ===== -->
+  <section id="contact" class="section">
+    <div class="section-label"><span class="bracket">[</span> Contact <span class="bracket">]</span></div>
+    <div class="window contact-window">
+      <div class="window-bar">
+        <span class="wdot red"></span><span class="wdot yellow"></span><span class="wdot green"></span>
+        <span class="window-title">Contact — awaiting input</span>
+      </div>
+      <div class="window-body">
+        <p class="line"><span class="prompt">tanvin@portfolio</span><span class="path">~</span><span class="dollar">$</span> new message</p>
+
+        <form id="contactForm" class="contact-form" novalidate>
+          <label>
+            <span class="field-label">Name</span>
+            <input type="text" name="name" placeholder="your name" required>
+          </label>
+          <label>
+            <span class="field-label">Email</span>
+            <input type="email" name="email" placeholder="you@example.com" required>
+          </label>
+          <label>
+            <span class="field-label">Message</span>
+            <textarea name="message" rows="4" placeholder="tell me about your project..." required></textarea>
+          </label>
+          <button type="submit" class="btn btn-primary">Send Message</button>
+          <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
+        </form>
+
+        <div class="socials">
+          <a href="mailto:tanbinahmed51@gmail.com">email</a>
+          <!-- ADD YOUR LINKS: replace href="#" below with your real profile URLs -->
+          <a href="#">linkedin</a>
+          <a href="#">dribbble</a>
+          <a href="#">behance</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <p>&copy; <span id="year"></span> Tanvin Ahmed — built with HTML, CSS &amp; a little bit of JS.</p>
+  <button id="rainToggle" class="rain-toggle" aria-pressed="true">rain: on</button>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
