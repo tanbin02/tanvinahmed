@@ -190,7 +190,7 @@ if(skillsGrid) skillObserver.observe(skillsGrid);
    Until you paste a real URL, the form will just show a friendly
    message instead of actually submitting anywhere.
 ========================================================= */
-const SHEETDB_API_URL = ''; // <-- PASTE your SheetDB API URL here
+const SHEETDB_API_URL = 'https://sheetdb.io/api/v1/xej1ov3hy94u2'; // <-- PASTE your SheetDB API URL here
 
 const form = document.getElementById('contactForm');
 const status = document.getElementById('formStatus');
